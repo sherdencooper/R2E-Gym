@@ -471,7 +471,8 @@ class DockerRuntime(ExecutionEnvironment):
 
     def setup_env_swesmith(self):
         try:
-            commit_id = self.ds['base_commit']
+            # commit_id = self.ds['base_commit']
+            commit_id = self.ds['instance_id'] # make it compatible with swesmith
             self.run("git fetch")
             self.run(f"git checkout {commit_id}")
             # Setup the run_test.sh script for subsequent testing.  
